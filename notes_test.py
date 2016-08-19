@@ -34,12 +34,12 @@ class notes_app_test(unittest.TestCase):
 			print 'Your search is out of bounds'
 
 
-	def test_search_text(self):
-		#Tests if search text matches entries in notes list.
+	def tests_search_text(self):
+		#Tests if search text matches entries in notes list. 
 
-		for index, entries in enumerate(self.notes):
-			if entries != search_text:
-				print '%s does not exist' %(search_text)
+		self.assertRegex(self.notes, search_text)
+		print '%s does not exist' %(search_text)
+
 
 
 	def test_deleting_wrong_index(self):
