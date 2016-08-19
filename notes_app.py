@@ -1,14 +1,12 @@
 class NotesApplication(object):
 
-	#note_id = 0
-	#master_l = {} #to take kay:value of author:content
 
 	def __init__(self, author):
 		self.author = author 
 		self.notes = [] 
 
 
-	def create(self, note_content):
+	def create(self, note_content):  #creates note instances. Tests for input types
 		if not note_content:
 			print "No content provided"
 
@@ -21,6 +19,8 @@ class NotesApplication(object):
 		else:
 			print "Incompatible content provided"
 
+		return self.notes
+
 
 	def list(self):
 		
@@ -28,16 +28,10 @@ class NotesApplication(object):
 		print self.notes
 		print 'By Author %s' %(author)
 
-		pass
 
 	def get(self, note_id):
 		note = self.notes[note_id - 1]
-		#return str(note_id)
 
-		#NotesApplication.note_id += 1
-		
-		
-		#master_l.append(notes)
 
 	def search(self, search_text):
 		print 'Showing results for search < %s >' %(search_text)
@@ -50,14 +44,18 @@ class NotesApplication(object):
 			print 'No results found'
 
 
-test = NotesApplication('MLK')
-test = NotesApplication('Poe')
-test.create('I have a dream')
-test.create('Something about crows')
-print test.create
-test.search('MLK')
-test.get(1)
-print test.search("")
+	def delete(self, note_id):
+		for entries in self.notes:
+			self.notes.pop(note_id)
+
+
+	def edit(self, note_id, new_content):
+		for index, entries in enumerate(self.notes):
+			note_content.insert(note_id, new_content)
+
+
+
+
 
 
 
